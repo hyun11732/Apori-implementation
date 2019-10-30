@@ -28,3 +28,9 @@ For example,
 "acde" is pruned because its 3-subset "ade" and "cde" are not in 3-itemsets.
 
 By pruning process, we can remove unused possibility and increase performance.
+This program will return in closed and max compression.
+Closed compression will return itemset X which has no super pattern and does not have same support.
+Max compression will return itemset X which has no super pattern.
+Both of compression reduce size of returning itemset but closed compression does not lose information but max compression does.
+
+It would be much better to use closed compression if returned itemset is not too many.
