@@ -15,4 +15,10 @@ This indicates, when customer buy a diaper, there is a high chance to buy a beer
 It is very simple algorithm just counting a possible set of items and count its frequency.
 However, if we count all possible set of items, there are too many to compute.
 For example, if there are 100 items, its number of possible set will be
-![equation](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
+
+![equation](https://github.com/hyun11732/Apori-implementation/blob/master/img1.JPG)
+
+So we need to prune out our item sets by using min support. 
+Pruning rule is little more complicate but not that hard.
+If we have,
+
