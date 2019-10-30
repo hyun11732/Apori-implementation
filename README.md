@@ -38,6 +38,9 @@ It would be much better to use closed compression if returned itemset is not too
 input should be format of 
 
 minsup(int)
+
 item1 item2 item3....
+
 item1 item2 item3....
+
 ...
