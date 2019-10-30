@@ -34,3 +34,10 @@ Max compression will return itemset X which has no super pattern.
 Both of compression reduce size of returning itemset but closed compression does not lose information but max compression does.
 
 It would be much better to use closed compression if returned itemset is not too many.
+
+input should be format of 
+
+minsup(int)
+item1 item2 item3....
+item1 item2 item3....
+...
