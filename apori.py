@@ -1,7 +1,7 @@
 from itertools import combinations
 from collections import OrderedDict
 
-
+# This function takes dic and minsup as parameters and eliminate a word which has lower frequency than minsup
 def cut_minsup(dic, minsup):
     words = dic.keys()
     for word in list(words):
@@ -9,7 +9,7 @@ def cut_minsup(dic, minsup):
             del dic[word]
     return dic
 
-
+# Simply count the word in the initial input
 def count_first_freq(inputs, minsup):
     dic = dict()
     for line in inputs:
@@ -20,7 +20,7 @@ def count_first_freq(inputs, minsup):
                 dic[word] += 1
     return cut_minsup(dic, minsup)
 
-
+# Sort dictionary by alphabetical order
 def tuple_sort(dic, count):
     new_dic = dict()
     for t in dic.keys():
@@ -28,7 +28,7 @@ def tuple_sort(dic, count):
         new_dic[tuple(t_sorted)] = dic[t]
     return new_dic
 
-
+# Sort dictionary by frequency
 def sorting(dic):
     new_dic = dict()
     alpha_sort = sorted(list(dic.keys()))
@@ -37,7 +37,7 @@ def sorting(dic):
         new_dic[i] = dic[i]
     return new_dic
 
-
+# Self join k-itemset to create k+1 itemset
 def self_join(sets, length):
     l = []
     if length == 2:
@@ -49,7 +49,7 @@ def self_join(sets, length):
                     l.append(elem)
         return list(combinations(l, length))
 
-
+# Pruneing process to delete k+1 itemset which subsets are not in k itemset
 def prune(candidate, previous_set, length, inputs, minsup):
     dic = dict()
     if length == 2:
@@ -72,7 +72,7 @@ def prune(candidate, previous_set, length, inputs, minsup):
                 dic[key] += 1
     return cut_minsup(dic, minsup)
 
-
+# Create string dictionary from tuple to count its frequency
 def make_string_dic(dic):
     new_dic = dict()
     for t in list(dic.keys()):
@@ -86,7 +86,7 @@ def make_string_dic(dic):
             new_dic[t] = dic[t]
     return new_dic
 
-
+# make closed set result
 def closed_compression(dic):
     closed_dic = dict()
     for key1 in list(dic.keys()):
@@ -105,7 +105,7 @@ def closed_compression(dic):
             closed_dic[string1] = dic[string1]
     return make_string_dic(closed_dic)
 
-
+# make max set result
 def max_compression(dic):
     max_dic = dict()
     for key1 in list(dic.keys()):
@@ -142,6 +142,7 @@ if __name__ == "__main__":
     count = 2
     m = 0
     sorted_set = []
+    # apori algorithm keep going up until it returns nothing
     while True:
         previous_set = list(dic.keys())[previous_length:len(dic)]
         previous_length = len(dic)
